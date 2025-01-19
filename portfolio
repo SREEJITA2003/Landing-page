@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ff00f2;
+            color: rgb(26, 12, 88);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        #about img {
+            max-width: 155px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            background: #eaeaea;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .project {
+            margin-bottom: 20px;
+        }
+
+        .project img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background: #f0f0f0;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SREEJITA GHOSH</h1>
+        <p>Engineering Student</p>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        
+        <p>My name is Sreejita Ghosh. I am hardworking ,honest and passionate.I am a dedicated to work with a passion for creating innovative solutions that drive results.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>C</li>
+            <li>C++</li>
+            <li>Python</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Calculator</h3>
+            <img src="c:\Users\KIIT\Pictures\Screenshots\Screenshot 2025-01-19 110915.png" alt="Calculator">
+            <p>A calculator with html,css,javascript</p>
+        </div>
+        <div class="project">
+            <h3>Radar using Arduino</h3>
+            <img src="image.png" alt="Hardware">
+            <p>A project made to detect any object present in the radar range with ultrasonic sensor.</p>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2>Resume</h2>
+        <p>Download  <a href="c:\Users\KIIT\Desktop\Visual Studio Code.lnk c:\Users\KIIT\Desktop\SREEJITA GHOSH1 - Copy.pdf" target="_blank">here</a>.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="ghosh.sreejita2003@gmail.com">ghosh.sreejita2003@gmail.com</a></p>
+        <p>Phone: 8001504063</p>
+    </section>
+
+    <footer>
+        <p>&copy;  All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
