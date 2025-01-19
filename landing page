@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #ec059f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        .columns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 5px;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            background: #f0f0f0;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome </h1>
+        <h2>To My Page</h2>
+        <h3>SREEJITA GHOSH</h3>
+        <p>The solution to all the web-site and electronics device related problems in daily life.</p>
+    </header>
+
+    <div class="main-content">
+        <section class="section">
+            <h2>About </h2>
+            <p>We are dedicated to delivering high-quality services and creating user-friendly designs. Our focus is on innovation, creativity, and functionality.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Services</h2>
+            <div class="columns">
+                <div class="column">
+                    <h3>Web page creation</h3>
+                    <p>Creating the wab page for your requirement.</p>
+                </div>
+                <div class="column">
+                    <h3>Micro-controller related </h3>
+                    <p>Creating daily purpose device according to your use.</p>
+                </div>
+                <div class="column">
+                    <h3>Content writing</h3>
+                    <p>It involves crafting engaging, informative, and relevant content tailored to specific audiences and purposes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Contact Us</h2>
+            <p>If you have questions feel free to ask</p>
+            <p>Email: <a href="mailto:ghosh.sreejita2003@gmail.com">mailto:ghosh.sreejita2003@gmail.com</a></p>
+            <p>Phone: 8001504063</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy;  All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
