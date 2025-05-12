@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSmart - E-Commerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1rem;
+    }
+
+    .banner {
+      background: url('https://via.placeholder.com/1200x300') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 2rem;
+    }
+
+    .search-bar input {
+      padding: 0.5rem;
+      width: 50%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .product {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+
+    .product h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .product p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .product button {
+      margin-top: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .product button:hover {
+      background-color: #0056b3;
+    }
+
+    .cart {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1rem;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cart h4 {
+      margin-bottom: 1rem;
+    }
+
+    .cart-item {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">ShopSmart</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Cart</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="banner">Big Sale! Up to 50% Off</div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search products...">
+  </div>
+
+  <section class="products" id="product-list">
+    
+  </section>
+
+  <div class="cart" id="cart">
+    <h4>Shopping Cart</h4>
+    <div id="cart-items"></div>
+  </div>
+
+  <footer>
+    &copy; 2025 ShopSmart. All rights reserved.
+  </footer>
+
+  <script>
+   
+    const products = [
+      { name: "Wireless Headphones", description: "Noise-cancelling, 20hr battery life.", image: "https://via.placeholder.com/250x150" },
+      { name: "Smartwatch", description: "Fitness tracking, heart rate monitor.", image: "https://via.placeholder.com/250x150" },
+      { name: "Bluetooth Speaker", description: "Rich bass, waterproof design.", image: "https://via.placeholder.com/250x150" },
+      { name: "DSLR Camera", description: "24MP, 1080p video recording.", image: "https://via.placeholder.com/250x150" }
+    ];
+
+    const productList = document.getElementById('product-list');
+    const cartItems = document.getElementById('cart-items');
+    const searchInput = document.getElementById('searchInput');
+
+    
+    function renderProducts(filter = '') {
+      productList.innerHTML = '';
+      const filtered = products.filter(p => p.name.toLowerCase().includes(filter.toLowerCase()));
+      filtered.forEach(product => {
+        const productEl = document.createElement('div');
+        productEl.className = 'product';
+        productEl.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <button onclick="addToCart('${product.name}')">Add to Cart</button>
+        `;
+        productList.appendChild(productEl);
+      });
+    }
+
+   
+    const cart = {};
+
+    function addToCart(productName) {
+      if (cart[productName]) {
+        cart[productName] += 1;
+      } else {
+        cart[productName] = 1;
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = '';
+      Object.entries(cart).forEach(([item, qty]) => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item';
+        itemEl.innerText = `${item} (x${qty})`;
+        cartItems.appendChild(itemEl);
+      });
+    }
+
+   
+    searchInput.addEventListener('input', (e) => {
+      renderProducts(e.target.value);
+    });
+
+   
+    renderProducts();
+  </script>
+</body>
+</html>
